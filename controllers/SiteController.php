@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use Psy\VarDumper\Dumper;
 
 class SiteController extends Controller
 {
@@ -61,6 +62,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        echo '<pre>';
+        var_dump(Yii::$app->assetManager);
+        echo '</pre>';
         return $this->render('index');
     }
 
@@ -124,5 +128,11 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionHello($message){
+        return $this->render('hello', [
+            'msg' => $message
+        ]);
     }
 }
