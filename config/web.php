@@ -7,9 +7,9 @@ $config = [
     'id' => 'basic',
     'name' => 'Hello World',
     'language' => 'id',
-    'defaultRoute' => 'site/login',
+    // 'defaultRoute' => 'site/login',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'test'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -53,7 +53,10 @@ $config = [
         ],
         'assetManager' => [
             'class' => 'app\components\AssetManager'
-        ]
+        ],
+        'test' => function(){
+            return new app\components\TestComponent();
+        }
     ],
     'params' => $params,
     'on beforeRequest' => function(){
