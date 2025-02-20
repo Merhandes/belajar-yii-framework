@@ -62,7 +62,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        Yii::$app->test->hello();
+        // Yii::$app->test->hello();
         // echo '<pre>';
         // var_dump(Yii::$app->test);
         // echo '</pre>';

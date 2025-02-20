@@ -10,6 +10,7 @@ $config = [
     // 'defaultRoute' => 'site/login',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'test'],
+    // 'defaultRoute' => 'my-article/hello-world',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -45,12 +46,12 @@ $config = [
         //     ],
         // ],
         // 'db' => $db,
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     'showScriptName' => false,
+        //     'rules' => [
+        //     ],
+        // ],
         'assetManager' => [
             'class' => 'app\components\AssetManager'
         ],
@@ -59,11 +60,11 @@ $config = [
         }
     ],
     'params' => $params,
-    'on beforeRequest' => function(){
-        echo '<pre><br><br><br>';
-        var_dump("From before request");
-        echo '</pre>';
-    }
+    // 'on beforeRequest' => function(){
+    //     echo '<pre><br><br><br>';
+    //     var_dump("From before request");
+    //     echo '</pre>';
+    // }
 ];
 
 if (YII_ENV_DEV) {
