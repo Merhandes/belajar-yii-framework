@@ -3,13 +3,14 @@
 namespace app\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\Response;
-use yii\filters\VerbFilter;
+use yii\web\Controller;
 use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\TestModel;
 use Psy\VarDumper\Dumper;
+use app\models\ContactForm;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 class SiteController extends Controller
 {
@@ -56,24 +57,24 @@ class SiteController extends Controller
         ];
     }
 
-    public function beforeAction($action)
-    {
+    // public function beforeAction($action)
+    // {
         // echo '<pre>';
         // var_dump($action);
         // echo '</pre>';
-        if($action->id === 'index'){
-            $this->layout = 'admin';
-            $this->enableCsrfValidation = false;
-        }
-        return parent::beforeAction($action);
-    }
+        // if($action->id === 'index'){
+        //     $this->layout = 'admin';
+        //     $this->enableCsrfValidation = false;
+        // }
+        // return parent::beforeAction($action);
+    // }
 
-    public function afterAction($action, $result){
-        echo '<pre>';
-        var_dump($result);
-        echo '</pre>';
-        return parent::afterAction($action, $result);
-    }
+    // public function afterAction($action, $result){
+    //     echo '<pre>';
+    //     var_dump($result);
+    //     echo '</pre>';
+    //     return parent::afterAction($action, $result);
+    // }
 
     /**
      * Displays homepage.
@@ -149,6 +150,41 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionTest()
+    {
+        $test = new TestModel();
+
+        $post = [
+            'name' => 'John',
+            'surname' => 'Doe',
+            'email' => 'john@example.com',
+            'myAge' => 30,
+        ];
+        $test->attributes = $post;
+
+        // $test->name = 'John';
+        // $test->surname = 'Doe';
+        // $test->email = 'john@example.com';
+        // $test->myAge = 30;
+
+        // foreach ($test as $attr => $value){
+        //     echo $attr.' '.$test->getAttributeLabel($attr) . '=' . $value . '<br>';        
+        // }
+        if($test->validate()){
+            echo 'OK';
+        }else{
+            echo '<pre>';
+            var_dump($test->errors);
+            echo '</pre>';
+            echo "Error";
+        }
+
+        // echo $test['surname'];
+        // echo '<pre>';
+        // var_dump($test->getAttributeLabel('surname'));
+        // echo '</pre>';
     }
 
     public function actionHello($message){
