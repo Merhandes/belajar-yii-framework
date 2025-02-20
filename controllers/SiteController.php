@@ -11,6 +11,8 @@ use Psy\VarDumper\Dumper;
 use app\models\ContactForm;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\NotFoundHttpException;
+use yii\web\ServerErrorHttpException;
 
 class SiteController extends Controller
 {
@@ -215,7 +217,23 @@ class SiteController extends Controller
         echo '<pre>';
         var_dump($_SERVER['REMOTE_ADDR']);
         echo '</pre>';
+    }
 
-
+    public function actionResponse(){
+        // return Yii::$app->response->redirect('about', 301)->send();
+        return Yii::$app->response->sendStreamAsFile('Hello World', 'test.txt');
+        // Yii::$app->response->format = Response::FORMAT_JSON;
+        // Yii::$app->response->data = [
+        //     'name' => 'Zura',
+        //     'surname' => 'Somthing'
+        // ];
+        // return [
+        //     'name' => 'Zura',
+        //     'surname' => 'Somthing'
+        // ];
+        // throw new ServerErrorHttpException();
+        // $response = Yii::$app->response;
+        // $response->statusCode = 500;
+        // $response->content = 'Hello From Thecodeholic';
     }
 }
