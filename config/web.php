@@ -14,6 +14,7 @@ $config = [
     'bootstrap' => ['log'],
     // 'defaultRoute' => 'my-article/hello-world',
     'aliases' => [
+        // '@web' => '@vendor/bower-asset',
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
