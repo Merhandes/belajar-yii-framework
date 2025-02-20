@@ -20,7 +20,7 @@ class SiteController extends Controller
     // public function beforeAction($action){
     //     return parent::beforeAction($action);
     // }
-    // public $layout = 'main';
+    public $layout = 'main';
     /**
      * {@inheritdoc}
      */
@@ -103,6 +103,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'login';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
