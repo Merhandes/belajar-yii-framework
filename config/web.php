@@ -65,17 +65,20 @@ $config = [
     //     var_dump("From before request");
     //     echo '</pre>';
     // }
-    'on beforeAction' => function(){
-        echo '<pre>';
-        var_dump("Application before action");
-        echo '</pre>';
+    // 'on beforeAction' => function(){
+    //     echo '<pre>';
+    //     var_dump("Application before action");
+    //     echo '</pre>';
 
-        Yii::$app->controller->on(\yii\web\Controller::EVENT_AFTER_ACTION, function(){
-            echo '<pre>';
-            var_dump("Controller before action from ->on method");
-            echo '</pre>';
-        });
-    }
+    //     Yii::$app->controller->on(\yii\web\Controller::EVENT_AFTER_ACTION, function(){
+    //         echo '<pre>';
+    //         var_dump("Controller before action from ->on method");
+    //         echo '</pre>';
+    //     });
+    // }
+    // 'on beforeAction' => function(){
+    //     echo Yii::$app->view->render('@app/views/page/about');
+    // }
 ];
 
 if (YII_ENV_DEV) {
