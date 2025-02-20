@@ -2,9 +2,20 @@
 
 /** @var yii\web\View $this */
 
+use app\widgets\BgWidget;
+
 $this->title = 'Belajar Yii Framework';
 ?>
 <div class="site-index">
+    
+    <?php echo \app\widgets\ButtonWidget::widget([
+        'text' => 'submit'
+    ]) ?>
+    <?php \app\widgets\BgWidget::begin([
+        // 'bgColor' =>'lightgreen'
+    ]) ?>
+        Hello World
+    <?php \app\widgets\BgWidget::end() ?>
 
     <div class="jumbotron text-center bg-transparent mt-5 mb-5">
         <h1 class="display-4">Selamat!</h1>
