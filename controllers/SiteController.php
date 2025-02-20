@@ -14,7 +14,11 @@ use yii\filters\AccessControl;
 
 class SiteController extends Controller
 {
-    public $layout = 'main';
+    public $enableCsrfValidation = false;
+    // public function beforeAction($action){
+    //     return parent::beforeAction($action);
+    // }
+    // public $layout = 'main';
     /**
      * {@inheritdoc}
      */
@@ -164,10 +168,7 @@ class SiteController extends Controller
         ];
         $test->attributes = $post;
 
-        // $test->name = 'John';
-        // $test->surname = 'Doe';
-        // $test->email = 'john@example.com';
-        // $test->myAge = 30;
+ 
 
         // foreach ($test as $attr => $value){
         //     echo $attr.' '.$test->getAttributeLabel($attr) . '=' . $value . '<br>';        
@@ -191,5 +192,30 @@ class SiteController extends Controller
         return $this->render('hello', [
             'msg' => $message
         ]);
+    }
+
+    public function actionRequest(){
+        // echo $id;
+        // echo '<pre>';
+        // var_dump(Yii::$app->request->get());
+        // echo '</pre>';
+        // Yii::$app->request->get()
+        // $id = isset($_GET['id']) ? $_GET['id'] : null;
+        // $id = Yii::$app->request->get('id', 50);
+        // $get = Yii::$app->request->post('name', 'Thecodeholic');
+        // echo Yii::$app->request->pathInfo;
+        // echo '<pre>';
+        // var_dump($get);
+        // echo '</pre>';
+        // echo '<pre>';
+        // var_dump(Yii::$app->request->getBodyParams());
+        // echo '</pre>';
+        $req = Yii::$app->request;
+
+        echo '<pre>';
+        var_dump($_SERVER['REMOTE_ADDR']);
+        echo '</pre>';
+
+
     }
 }
