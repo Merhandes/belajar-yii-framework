@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7309b9d2e4518ad52988e780a875afc0",
+    "content-hash": "ba4c5540e2fd3d1d276dc179ddd2c133",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -18,6 +18,21 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/twbs/bootstrap/zipball/6e1f75f420f68e1d52733b8e407fc7c3766c9dba",
                 "reference": "6e1f75f420f68e1d52733b8e407fc7c3766c9dba"
+            },
+            "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/font-awesome",
+            "version": "6.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "af620534bfc3c2d4cbefcfeec29603bbe7809e64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/af620534bfc3c2d4cbefcfeec29603bbe7809e64",
+                "reference": "af620534bfc3c2d4cbefcfeec29603bbe7809e64"
             },
             "type": "bower-asset"
         },

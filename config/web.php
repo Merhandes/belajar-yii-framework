@@ -1,6 +1,7 @@
 <?php
 
 use yii\web\JsonParser;
+use yii\bootstrap5\BootstrapAsset;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
@@ -58,12 +59,21 @@ $config = [
             'rules' => [
             ],
         ],
-        // 'assetManager' => [
-        //     'class' => 'app\components\AssetManager'
-        // ],
-        // 'test' => function(){
-        //     return new app\components\TestComponent();
-        // }
+        'assetManager' => [
+            // 'class' => 'app\components\AssetManager'
+            'linkAssets' => false,
+            'appendTimestamp' => true,
+            'bundles' => [
+                BootstrapAsset::class => [
+                    'css' => [
+                        '/vendor/bootstrap/css/bootstrap.min.css'
+                    ]
+                ]
+            ]
+        ],
+        'test' => function(){
+            return new app\components\TestComponent();
+        }
     ],
     'params' => $params,
     // 'on beforeRequest' => function(){
