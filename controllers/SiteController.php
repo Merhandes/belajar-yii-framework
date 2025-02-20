@@ -13,6 +13,7 @@ use Psy\VarDumper\Dumper;
 
 class SiteController extends Controller
 {
+    public $layout = 'main';
     /**
      * {@inheritdoc}
      */
@@ -53,6 +54,25 @@ class SiteController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
+    }
+
+    public function beforeAction($action)
+    {
+        // echo '<pre>';
+        // var_dump($action);
+        // echo '</pre>';
+        if($action->id === 'index'){
+            $this->layout = 'admin';
+            $this->enableCsrfValidation = false;
+        }
+        return parent::beforeAction($action);
+    }
+
+    public function afterAction($action, $result){
+        echo '<pre>';
+        var_dump($result);
+        echo '</pre>';
+        return parent::afterAction($action, $result);
     }
 
     /**

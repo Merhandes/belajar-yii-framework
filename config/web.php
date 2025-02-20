@@ -9,7 +9,7 @@ $config = [
     'language' => 'id',
     // 'defaultRoute' => 'site/login',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log', 'test'],
+    'bootstrap' => ['log'],
     // 'defaultRoute' => 'my-article/hello-world',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -46,18 +46,18 @@ $config = [
         //     ],
         // ],
         // 'db' => $db,
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //     ],
-        // ],
-        'assetManager' => [
-            'class' => 'app\components\AssetManager'
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
         ],
-        'test' => function(){
-            return new app\components\TestComponent();
-        }
+        // 'assetManager' => [
+        //     'class' => 'app\components\AssetManager'
+        // ],
+        // 'test' => function(){
+        //     return new app\components\TestComponent();
+        // }
     ],
     'params' => $params,
     // 'on beforeRequest' => function(){
@@ -65,6 +65,17 @@ $config = [
     //     var_dump("From before request");
     //     echo '</pre>';
     // }
+    'on beforeAction' => function(){
+        echo '<pre>';
+        var_dump("Application before action");
+        echo '</pre>';
+
+        Yii::$app->controller->on(\yii\web\Controller::EVENT_AFTER_ACTION, function(){
+            echo '<pre>';
+            var_dump("Controller before action from ->on method");
+            echo '</pre>';
+        });
+    }
 ];
 
 if (YII_ENV_DEV) {
